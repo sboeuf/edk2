@@ -421,7 +421,7 @@ PlatformBootManagerBeforeConsole (
   // We need to connect all trusted consoles for TCG PP. Here we treat all
   // consoles in OVMF to be trusted consoles.
   PlatformInitializeConsole (
-    XenDetected () ? gXenPlatformConsole : gPlatformConsole
+    (XenDetected () || PcdGet16 (PcdOvmfHostBridgePciDevId) == CLOUDHV_DEVICE_ID) ? gXenPlatformConsole : gPlatformConsole
     );
 
   //
