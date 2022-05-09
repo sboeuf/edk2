@@ -900,8 +900,8 @@ SecCoreStartupWithStack (
   //
   // Make sure the 8259 is masked before initializing the Debug Agent and the debug timer is enabled
   //
-  IoWrite8 (0x21, 0xff);
-  IoWrite8 (0xA1, 0xff);
+  //IoWrite8 (0x21, 0xff);
+  //IoWrite8 (0xA1, 0xff);
 
   //
   // Initialize Local APIC Timer hardware and disable Local APIC Timer
