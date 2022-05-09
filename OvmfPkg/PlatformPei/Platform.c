@@ -338,13 +338,20 @@ InitializePlatform (
   )
 {
   EFI_STATUS  Status;
+  UINT64      Size;
 
   DEBUG ((DEBUG_INFO, "Platform PEIM Loaded\n"));
 
   mPlatformInfoHob.SmmSmramRequire     = FeaturePcdGet (PcdSmmSmramRequire);
+  DEBUG ((DEBUG_INFO, "Platform PEIM Loaded 2\n"));
   mPlatformInfoHob.SevEsIsEnabled      = MemEncryptSevEsIsEnabled ();
-  mPlatformInfoHob.PcdPciMmio64Size    = PcdGet64 (PcdPciMmio64Size);
+  DEBUG ((DEBUG_INFO, "Platform PEIM Loaded 3\n"));
+  Size = PcdGet64 (PcdPciMmio64Size);
+  DEBUG ((DEBUG_INFO, "Platform PEIM Loaded 3.5\n"));
+  mPlatformInfoHob.PcdPciMmio64Size    = Size;
+  DEBUG ((DEBUG_INFO, "Platform PEIM Loaded 4\n"));
   mPlatformInfoHob.DefaultMaxCpuNumber = PcdGet32 (PcdCpuMaxLogicalProcessorNumber);
+  DEBUG ((DEBUG_INFO, "Platform PEIM Loaded 5\n"));
 
   PlatformDebugDumpCmos ();
 
