@@ -264,6 +264,7 @@ GetPvhMemmapEntries (
   return EFI_SUCCESS;
 }
 
+/*
 STATIC
 UINT64
 GetHighestSystemMemoryAddressFromPvhMemmap (
@@ -300,6 +301,7 @@ GetHighestSystemMemoryAddressFromPvhMemmap (
 
   return HighestAddress;
 }
+*/
 
 UINT32
 EFIAPI
@@ -312,11 +314,12 @@ PlatformGetSystemMemorySizeBelow4gb (
   UINT8       Cmos0x34;
   UINT8       Cmos0x35;
 
+/*
   if (PlatformInfoHob->HostBridgeDevId == CLOUDHV_DEVICE_ID) {
     // Get the information from PVH memmap
     return (UINT32)GetHighestSystemMemoryAddressFromPvhMemmap (TRUE);
   }
-
+*/
   Status = PlatformScanOrAdd64BitE820Ram (FALSE, &LowerMemorySize, NULL);
   if ((Status == EFI_SUCCESS) && (LowerMemorySize > 0)) {
     return (UINT32)LowerMemorySize;

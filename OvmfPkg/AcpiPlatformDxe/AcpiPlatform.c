@@ -33,7 +33,8 @@ InstallAcpiTables (
 
   HostBridgeDevId = PcdGet16 (PcdOvmfHostBridgePciDevId);
   if (HostBridgeDevId == CLOUDHV_DEVICE_ID) {
-    Status = InstallCloudHvTables (AcpiTable);
+//    Status = InstallCloudHvTables (AcpiTable);
+    Status = InstallCloudHvTablesTdx (AcpiTable);
   } else {
     Status = InstallQemuFwCfgTables (AcpiTable);
   }
